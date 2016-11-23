@@ -9,7 +9,10 @@ int :: Int
 integer :: Integer
 float :: Float
 rational :: Rational
+
+-- Logic type
 bool :: Bool
+
 
 int = 1
 integer = 2^200
