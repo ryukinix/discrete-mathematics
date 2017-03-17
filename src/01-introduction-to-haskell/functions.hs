@@ -25,5 +25,7 @@ fib n | n > 1 = fib(n - 1) + fib(n - 2)
 
 -- | function composition
 -- is just like fatfib = fat(fib(x))
+fatfib :: Integer -> Integer
 fatfib = fat . fib
 
+main = do print (fatfib 10)
