@@ -11,7 +11,7 @@ import Text.Printf
 
 -- STRINGS AND CHARS
 {--
-Strings are made by elements chars.
+Strings are made by char elements.
 A elemental string can be see as a list of chars.
 
 > ['a', 'b', 'c', 'd'] == "abcd"

@@ -7,6 +7,8 @@
 -- is done that way because the currying. Reducing
 -- functions to just a dataflow. So do this is wrong:
 -- and :: (Bool, Bool) -> Bool
+-- This means that a function and receives a tuple (Bool, Bool) as its
+-- unique argument and returns a Bool
 
 -- btw, makes some sense on a structured language.
 -- HASKELL IS NOT A STRUCTURED LANGUAGE!

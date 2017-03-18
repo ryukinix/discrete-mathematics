@@ -41,6 +41,6 @@ largestDivisible :: (Integral a) => a
 largestDivisible = head (filter p [100000, 99999..])
   where p x = x `mod` 3829 == 0
 
--- takeWhile get the first value when breaks the condition
+-- takeWhile get the the values until condition matchs
 n = sum $ takeWhile (<10000) $ filter odd $ map (^2) $ [1..]
 v = takeWhile (/=' ') "bananas assadas" -- bananas

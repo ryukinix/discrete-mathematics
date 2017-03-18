@@ -11,7 +11,9 @@ data Animal a b = Cat a | Dog b | Rat
 
 
 data BreedOfCat = Siamese | Persian | Moggie
-                deriving Show
+                deriving (Show, Eq)
+
+-- Deriving is like inherits properties from other type classes.
 
 -- The Monad Maybe wrapping a value
 -- data Maybe a = Nothing | Just a
@@ -20,5 +22,5 @@ phoneMessage :: Maybe Integer -> String
 phoneMessage Nothing = "Telephone number not found"
 phoneMessage (Just x) = "The number is " ++ show x
 
--- If a function has a argument or result a possibility of variability in our type
+-- If a function has a possibility of variability in our type result/input
 -- We can use Maybe Monad to handling that.
