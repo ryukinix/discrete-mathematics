@@ -37,7 +37,7 @@ length [1,2,3]
 --}
 
 
-sum' :: Num a => [a] ->a
+sum' :: Num a => [a] -> a
 sum' [] = 0
 sum' (x:xs) = x + sum' xs
 
@@ -126,3 +126,33 @@ quicksort [3,8,5,2]
 = [2,3] ++ [5,8]
 = [2,3,5,8]
 --}
+
+
+-- Higher Order Recursive Functions
+
+
+map' :: (a -> b) -> [a] -> [b]
+map' _ [] = []
+map' f (x:xs) = f x : map f xs
+
+
+{-- Hand evaluation of map function
+
+map (*5) [1,2,3]
+= 1 * 5 : map (*5) [2,3]
+= 5 : (2*5 : map (*5) [3])
+= 5 : 10 : 3 * 5 : map (* 5) []
+= 5 : 10 : 15 : []
+= [5,10,15]
+
+--}
+
+foldr' :: (a -> a -> a) -> a -> [a] -> a
+foldr' _ z [] = z
+foldr' f z (x:xs) = f x $ foldr' f z xs
+
+sum'' :: (Num a) => [a] -> a 
+sum'' xs = foldr' (+) 0 xs
+
+
+main = print $ sum'' [1,2,3]
