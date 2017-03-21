@@ -6,7 +6,7 @@
 
 copy :: [a] -> [a]
 copy [] = []
-copy (x:xs) = x : copy xs 
+copy (x:xs) = x : copy xs
 
 -- Exercise 2
 -- write a function inverse that takes a list of pairs and
@@ -26,7 +26,7 @@ merge :: Ord a => [a] -> [a] -> [a]
 -- merge [1,2,3] [4,5,6] => [1,2,3,4,5,6]
 merge xs [] = xs
 merge [] ys = ys
-merge (x:xs) (y:ys) 
+merge (x:xs) (y:ys)
     | x <= y = x:merge xs (y:ys)
     | otherwise = y:merge (x:xs) ys
 
@@ -67,7 +67,7 @@ lookup' :: (Eq a) => a -> [(a,b)] -> Maybe b
 lookup' _ [] = Nothing
 lookup' x ((a,b):xs)
     | x == a  = Just b
-    | otherwise = lookup x xs  
+    | otherwise = lookup x xs
 
 -- Exercise 6
 -- Write a function that counts the number of times
@@ -140,7 +140,7 @@ find str@(_:xs) substr
 foldrWith :: (a -> b -> c -> c) -> c -> [a] -> [b] -> c
 foldrWith _ z [] _ = z
 foldrWith _ z _ [] = z
-foldrWith f z (x:xs) (y:ys) = f x y $ foldrWith f z xs ys 
+foldrWith f z (x:xs) (y:ys) = f x y $ foldrWith f z xs ys
 
 -- Exercise 12
 -- Using foldr, write a function mappend such that
@@ -296,4 +296,4 @@ tests = [(1, [1,2,3] == copy [1,2,3]),
          (20, "321" == fractional "123.321" && "123" == whole "123.321")]
 
 main :: IO()
-main = do mapM_ (putStrLn . testExercise) tests
+main = mapM_ (putStrLn . testExercise) tests

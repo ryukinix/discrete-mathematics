@@ -4,21 +4,23 @@
 
 -- We turn now to the implementation of arithmetic operations over
 -- a simple data structure representing the natural numbers. The reason
--- for working with this represantation is that it provides a good
+-- for working with this representation is that it provides a good
 -- introduction to recursion over general algebraic types
 
 data Peano = Zero | Succ Peano
-             deriving Show
 
 peanoDecode :: Peano -> Integer
 peanoDecode Zero = 0
 peanoDecode (Succ x) = 1 + peanoDecode x
 
+instance Show Peano where
+  show x = show $ peanoDecode x
+
 -- peanoDecode (Succ (Succ Zero)) == 2
 -- peanoDecode Zero == 0
 
 -- As you can see, the peano data type is recursive. In this case,
--- the recursion builds up a series of constructor applicationrs,
+-- the recursion builds up a series of constructor applications,
 -- somewhat like the list data type
 
 data List a = Empty | Cons a (List a)
@@ -50,11 +52,20 @@ equals Zero     b        = False
 equals a        Zero     = False
 equals (Succ a) (Succ b) = equals a b
 
+instance Eq Peano where
+  a == b = equals a b
+
 
 lt :: Peano -> Peano -> Bool
 lt a        Zero     = False
 lt Zero     (Succ b) = True
 lt (Succ a) (Succ b) = lt a b
+
+instance Ord Peano where
+  a < b = lt a b
+  a >= b = (not $ lt a b)
+  a <= b = lt a b || a == b
+  a > b = not (a <= b)
 
 -- Data Recursion
 
@@ -75,7 +86,7 @@ twos = 2 : twos -- infinite list of 2
 
 -- A more tricky example
 fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
--- Yes! The fibonnaci sequence! Infinite! One-liners is the power of Haskell
+-- Yes! The Fibonacci sequence! Infinite! One-liners is the power of Haskell
 
 
 
