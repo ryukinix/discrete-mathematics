@@ -13,13 +13,13 @@ exercises explaining really easily the mathematics concepts envolved
 as well the Haskell too.
 
 # Reading [76/442]
-![progress](http://progressed.io/bar/17)
+![progress](http://progressed.io/bar/21)
 
 - [ ] Section I: Programming and Reasoning with Equations
   - [x] Chapter 1: Introduction to Haskell
   - [x] Chapter 2: Equational Reasoning
   - [x] Chapter 3: Recursion
-  - [ ] Chapter 4: Induction
+  - [x] Chapter 4: Induction
   - [ ] Chapter 5: Trees
 - [ ] Section II: Logic
   - [ ] Chapter 6: Propositional Logic
