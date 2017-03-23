@@ -2,16 +2,17 @@ import Data.Function (on)
 import Data.List (sortBy, groupBy, intercalate)
 import Notes (BinTree(Node, Leaf))
 
+
 walkTree :: BinTree a -> [(Int, a)]
 walkTree Leaf = []
-walkTree root@(Node a l r) = let h = depth root
+walkTree root@(Node a l r) = let h = height root
                                  left = walkTree l
                                  right = walkTree r
                              in [(h,a)] ++ left ++ right
 
 treeList :: BinTree b -> [(Int,[b])]
 treeList t = clean $ groups $ walkTree t
-  where groups = groupBy ((==) `on` fst ) . sortBy (compare `on` negate . fst)
+  where groups = groupBy ((==) `on` fst ) . sortBy (compare `on` fst)
         f xs = (fst (head xs), map snd xs)
         clean = map f
 
@@ -28,12 +29,9 @@ prettyTree (Node a left right) d = (replicate d ' ') ++ "=> " ++ show a ++ "\n"
                                    ++ lookBranch left ++ lookBranch right
   where lookBranch b = prettyTree b (d + 3)
 
-depthTree :: BinTree a -> Int -> Int -> Int
-depthTree Leaf dl dr = max dl dr
-depthTree (Node _ l r) dl dr = let leftDepth = (depthTree l (dl +1) dr)
-                                   rightDepth = (depthTree r dl (dr +1))
-                                in max leftDepth rightDepth
-depth n = depthTree n 0 0
+height :: BinTree a -> Int
+height Leaf = 0
+height (Node _ l r) = 1 + max (height l) (height r)
 
 instance (Show a) => Show (BinTree a) where
   show t = prettyTree t 0
