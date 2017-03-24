@@ -188,3 +188,18 @@ zipTree t1 t2
   | sameShape t1 t2 = Just $ zip (inorder t1) (inorder t2)
   | otherwise = Nothing
 
+-- Exercise 11. Write zipWithTree, a function that is like zipWith
+-- except that it takes trees instead of lists. The first argument is
+-- a function of type (a->b->c) the second argument is a tree with elements
+-- of type a and the third argument is a tree with elements of type b.
+-- The function returns a list with type [c]
+
+-- IN THIS VERSIONS IS USED THE MAYBE MONAD BECAUSE... YES!
+-- Why not use monads after all?
+-- Monads ARE MONADS (most precise definition known)
+
+zipWithTree :: (a -> b -> c) -> BinTree a -> BinTree b -> Maybe [c]
+zipWithTree f t1 t2 = let z = zipTree t1 t2
+                       in  zipMaybe z
+  where zipMaybe Nothing = Nothing
+        zipMaybe (Just xs) = Just [f a b | (a,b) <- xs]
