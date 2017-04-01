@@ -12,8 +12,8 @@ The main target of this repository is use git to save all the solutions of book
 exercises explaining really easily the mathematics concepts envolved
 as well the Haskell too.
 
-# Reading [76/442]
-![progress](http://progressed.io/bar/21)
+# Reading [112/442]
+![progress](http://progressed.io/bar/25)
 
 - [ ] Section I: Programming and Reasoning with Equations
   - [x] Chapter 1: Introduction to Haskell
