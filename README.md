@@ -12,15 +12,15 @@ The main target of this repository is use git to save all the solutions of book
 exercises explaining really easily the mathematics concepts envolved
 as well the Haskell too.
 
-# Reading [112/442]
-![progress](http://progressed.io/bar/25)
+# Reading [120/442]
+![progress](http://progressed.io/bar/27)
 
-- [ ] Section I: Programming and Reasoning with Equations
+- [x] Section I: Programming and Reasoning with Equations
   - [x] Chapter 1: Introduction to Haskell
   - [x] Chapter 2: Equational Reasoning
   - [x] Chapter 3: Recursion
   - [x] Chapter 4: Induction
-  - [ ] Chapter 5: Trees
+  - [x] Chapter 5: Trees
 - [ ] Section II: Logic
   - [ ] Chapter 6: Propositional Logic
   - [ ] Chapter 7: Predicate Logic

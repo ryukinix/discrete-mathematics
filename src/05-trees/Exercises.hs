@@ -203,3 +203,18 @@ zipWithTree f t1 t2 = let z = zipTree t1 t2
                        in  zipMaybe z
   where zipMaybe Nothing = Nothing
         zipMaybe (Just xs) = Just [f a b | (a,b) <- xs]
+
+-- Exercise 12. Write appendTree, a function that takes a binary tree and a
+-- list, and appends the contents of the tree (traversed from left to right) to
+-- the front of the list. For example,
+-- appendTree (BinNode 2 (BinNode 1 BinLeaf BinLeaf)
+--                       (BinNode 3 BinLeaf BinLeaf))
+--            [4,5]
+-- evaluates to [1,2,3,4,5]. Try to find an efficient solution that minimises
+-- recopying.
+
+appendTree :: BinTree a -> [a] -> [a]
+appendTree Leaf xs = xs
+appendTree (Node x l r) xs = appendTree l (x : appendTree r xs)
+-- this is the same definition as g from inorder' on Notes.hs
+-- the partial function to write a inorder more efficiently

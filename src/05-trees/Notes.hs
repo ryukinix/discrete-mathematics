@@ -101,6 +101,13 @@ insert newPair@(key,v) (Node oldPair@(a,_) l r)
   | key > a = Node oldPair l (insert newPair r)
   | key < a = Node oldPair (insert newPair l) r
 
+-- a O(n) version of inorder function (the earlier definition is O(n²))
+g :: BinTree a -> [a] -> [a]
+g Leaf ks = ks
+g (Node x l r) ks = g l (x : g r ks)
+
+inorder' :: BinTree a -> [a]
+inorder' t = g t []
 
 -- auxiliary functions
 binTreeIntToBinTree :: BinTreeInt -> BinTree Int
