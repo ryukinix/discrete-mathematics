@@ -151,7 +151,11 @@ foldr' :: (a -> a -> a) -> a -> [a] -> a
 foldr' _ z [] = z
 foldr' f z (x:xs) = f x $ foldr' f z xs
 
-sum'' :: (Num a) => [a] -> a 
+foldl' :: (a -> a -> a) -> a -> [a] -> a
+foldl' _ z [] = z
+foldl' f z (x:xs) = foldl' f (f z x) xs
+
+sum'' :: (Num a) => [a] -> a
 sum'' xs = foldr' (+) 0 xs
 
 
