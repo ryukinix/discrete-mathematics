@@ -57,7 +57,7 @@ when xs is a infinite list. For finite lists this works fine.
 ![exercise-17-18](exercise_17-18.jpg)
 
 ## Exercise 19
-![exercise-19](exercise_10.jpg)
+![exercise-19](exercise_19.jpg)
 
 ## Exercise 20
 ![exercise-20](exercise_20.jpg)
